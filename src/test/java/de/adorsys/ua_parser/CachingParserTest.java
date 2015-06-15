@@ -1,10 +1,13 @@
-package ua_parser;
+package de.adorsys.ua_parser;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import de.adorsys.ua_parser.CachingParser;
+import de.adorsys.ua_parser.Parser;
 
 /**
  * These tests really only redo the same tests as in ParserTest but with a

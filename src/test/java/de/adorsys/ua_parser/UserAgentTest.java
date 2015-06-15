@@ -14,7 +14,9 @@
  * limitations under the License.
  */
 
-package ua_parser;
+package de.adorsys.ua_parser;
+
+import de.adorsys.ua_parser.UserAgent;
 
 /**
  * @author Steve Jiang (@sjiang) <gh at iamsteve com>

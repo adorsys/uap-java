@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package ua_parser;
+package de.adorsys.ua_parser;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

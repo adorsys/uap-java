@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package ua_parser;
+package de.adorsys.ua_parser;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -25,6 +25,11 @@ import org.junit.Test;
 import org.junit.Before;
 import org.yaml.snakeyaml.Yaml;
 
+import de.adorsys.ua_parser.Client;
+import de.adorsys.ua_parser.Device;
+import de.adorsys.ua_parser.OS;
+import de.adorsys.ua_parser.Parser;
+import de.adorsys.ua_parser.UserAgent;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 
