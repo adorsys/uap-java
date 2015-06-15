@@ -1,3 +1,6 @@
 target
 .classpath
 .project
+.externalToolBuilders/
+.settings/
+maven-eclipse.xml
