@@ -29,11 +29,11 @@ public class UserAgentTest extends DataTest<UserAgent> {
            major = (random.nextBoolean() ? g.getString(8): null),
            minor = (random.nextBoolean() ? g.getString(8): null),
            patch = (random.nextBoolean() ? g.getString(8): null);
-    return new UserAgent(family, major, minor, patch);
+    return new UserAgent(family, major, minor, patch, null);
   }
 
   @Override
   protected UserAgent getBlankInstance() {
-    return new UserAgent(null, null, null, null);
+    return new UserAgent(null, null, null, null, null);
   }
 }

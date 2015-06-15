@@ -24,17 +24,18 @@ import java.util.Map;
  * @author Steve Jiang (@sjiang) <gh at iamsteve com>
  */
 public class UserAgent {
-  public final String family, major, minor, patch;
+  public final String family, major, minor, patch, engine;
 
-  public UserAgent(String family, String major, String minor, String patch) {
+  public UserAgent(String family, String major, String minor, String patch, String engine) {
     this.family = family;
     this.major = major;
     this.minor = minor;
     this.patch = patch;
+    this.engine = engine;
   }
 
   public static UserAgent fromMap(Map<String, String> m) {
-    return new UserAgent(m.get("family"), m.get("major"), m.get("minor"), m.get("patch"));
+    return new UserAgent(m.get("family"), m.get("major"), m.get("minor"), m.get("patch"), m.get("engine"));
   }
 
   @Override
@@ -46,7 +47,8 @@ public class UserAgent {
     return ((this.family != null && this.family.equals(o.family)) || this.family == o.family) &&
            ((this.major != null && this.major.equals(o.major)) || this.major == o.major) &&
            ((this.minor != null && this.minor.equals(o.minor)) || this.minor == o.minor) &&
-           ((this.patch != null && this.patch.equals(o.patch)) || this.patch == o.patch);
+           ((this.patch != null && this.patch.equals(o.patch)) || this.patch == o.patch) &&
+           ((this.engine != null && this.engine.equals(o.engine)) || this.engine == o.engine);
   }
 
   @Override
@@ -55,16 +57,18 @@ public class UserAgent {
     h += major == null ? 0 : major.hashCode();
     h += minor == null ? 0 : minor.hashCode();
     h += patch == null ? 0 : patch.hashCode();
+    h += engine == null ? 0 : engine.hashCode();
     return h;
   }
 
   @Override
   public String toString() {
-    return String.format("{\"family\": %s, \"major\": %s, \"minor\": %s, \"patch\": %s}",
+    return String.format("{\"family\": %s, \"major\": %s, \"minor\": %s, \"patch\": %s, \"engine\": %s}",
                          family == null ? Constants.EMPTY_STRING : '"' + family + '"',
                          major == null ? Constants.EMPTY_STRING : '"' + major + '"',
                          minor == null ? Constants.EMPTY_STRING : '"' + minor + '"',
-                         patch == null ? Constants.EMPTY_STRING : '"' + patch + '"');
+                         patch == null ? Constants.EMPTY_STRING : '"' + patch + '"',
+    					 engine == null ? Constants.EMPTY_STRING : '"' + engine + '"');
   }
 
 }

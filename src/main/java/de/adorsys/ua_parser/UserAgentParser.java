@@ -54,7 +54,7 @@ public class UserAgentParser {
         return agent;
       }
     }
-    return new UserAgent("Other", null, null, null);
+    return new UserAgent("Other", null, null, null, null);
   }
 
   protected static UAPattern patternFromMap(Map<String, String> configMap) {
@@ -66,22 +66,24 @@ public class UserAgentParser {
     return(new UAPattern(Pattern.compile(regex),
                          configMap.get("family_replacement"),
                          configMap.get("v1_replacement"),
-                         configMap.get("v2_replacement")));
+                         configMap.get("v2_replacement"),
+    					 configMap.get("engine_replacement")));
   }
 
   protected static class UAPattern {
     private final Pattern pattern;
-    private final String familyReplacement, v1Replacement, v2Replacement;
+    private final String familyReplacement, v1Replacement, v2Replacement, engineReplacement;
 
-    public UAPattern(Pattern pattern, String familyReplacement, String v1Replacement, String v2Replacement) {
+    public UAPattern(Pattern pattern, String familyReplacement, String v1Replacement, String v2Replacement, String engineReplacement) {
       this.pattern = pattern;
       this.familyReplacement = familyReplacement;
       this.v1Replacement = v1Replacement;
       this.v2Replacement = v2Replacement;
+      this.engineReplacement = engineReplacement;
     }
 
     public UserAgent match(String agentString) {
-      String family = null, v1 = null, v2 = null, v3 = null;
+      String family = null, v1 = null, v2 = null, v3 = null, engine = null;
       Matcher matcher = pattern.matcher(agentString);
 
       if (!matcher.find()) {
@@ -114,7 +116,12 @@ public class UserAgentParser {
           v3 = matcher.group(4);
         }
       }
-      return family == null ? null : new UserAgent(family, v1, v2, v3);
+      
+      if (engineReplacement != null) {
+    	engine = engineReplacement; // no dynamic parsing by now, we just want to get "Mobile App"  
+      }
+      
+      return family == null ? null : new UserAgent(family, v1, v2, v3, engine);
     }
   }
 }
