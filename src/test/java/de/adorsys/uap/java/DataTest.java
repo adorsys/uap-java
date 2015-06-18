@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package de.adorsys.ua_parser;
+package de.adorsys.uap.java;
 
 import java.util.HashSet;
 import java.util.Random;

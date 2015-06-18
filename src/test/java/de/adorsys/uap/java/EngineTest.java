@@ -1,4 +1,4 @@
-package de.adorsys.ua_parser;
+package de.adorsys.uap.java;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -6,6 +6,9 @@ import static org.junit.Assert.assertNull;
 import java.io.IOException;
 
 import org.junit.Test;
+
+import de.adorsys.uap.java.Client;
+import de.adorsys.uap.java.Parser;
 
 /**
  * @author fhi

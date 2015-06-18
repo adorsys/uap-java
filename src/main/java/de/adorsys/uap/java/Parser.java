@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package de.adorsys.ua_parser;
+package de.adorsys.uap.java;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -31,13 +31,13 @@ import org.yaml.snakeyaml.constructor.SafeConstructor;
  */
 public class Parser {
 
-  private static final String REGEX_YAML_PATH = "/ua_parser/regexes.yaml";
+  private static final String REGEX_YAML_PATH = "/de/adorsys/uap/core/regexes.yaml";
   private UserAgentParser uaParser;
   private OSParser osParser;
   private DeviceParser deviceParser;
 
-  public Parser() throws IOException {
-    this(Parser.class.getResourceAsStream(REGEX_YAML_PATH));
+  public Parser() throws IOException {	  
+	  this(Parser.class.getResourceAsStream(REGEX_YAML_PATH));
   }
 
   public Parser(InputStream regexYaml) {

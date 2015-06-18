@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package de.adorsys.ua_parser;
+package de.adorsys.uap.java;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -25,11 +25,11 @@ import org.junit.Test;
 import org.junit.Before;
 import org.yaml.snakeyaml.Yaml;
 
-import de.adorsys.ua_parser.Client;
-import de.adorsys.ua_parser.Device;
-import de.adorsys.ua_parser.OS;
-import de.adorsys.ua_parser.Parser;
-import de.adorsys.ua_parser.UserAgent;
+import de.adorsys.uap.java.Client;
+import de.adorsys.uap.java.Device;
+import de.adorsys.uap.java.OS;
+import de.adorsys.uap.java.Parser;
+import de.adorsys.uap.java.UserAgent;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;
 
@@ -39,7 +39,7 @@ import static org.junit.Assert.*;
  * @author Steve Jiang (@sjiang) <gh at iamsteve com>
  */
 public class ParserTest {
-  final String TEST_RESOURCE_PATH = "/ua_parser/";
+  final String TEST_RESOURCE_PATH = "/de/adorsys/uap/core/";
   Yaml yaml = new Yaml();
   Parser parser;
 

@@ -14,26 +14,23 @@
  * limitations under the License.
  */
 
-package de.adorsys.ua_parser;
+package de.adorsys.uap.java;
 
-import de.adorsys.ua_parser.UserAgent;
+import de.adorsys.uap.java.Device;
 
 /**
  * @author Steve Jiang (@sjiang) <gh at iamsteve com>
  */
-public class UserAgentTest extends DataTest<UserAgent> {
+public class DeviceTest extends DataTest<Device> {
   @Override
-  protected UserAgent getRandomInstance(long seed, StringGenerator g) {
+  protected Device getRandomInstance(long seed, StringGenerator g) {
     random.setSeed(seed);
-    String family = g.getString(256),
-           major = (random.nextBoolean() ? g.getString(8): null),
-           minor = (random.nextBoolean() ? g.getString(8): null),
-           patch = (random.nextBoolean() ? g.getString(8): null);
-    return new UserAgent(family, major, minor, patch, null);
+    String family = g.getString(256);
+    return new Device(family);
   }
 
   @Override
-  protected UserAgent getBlankInstance() {
-    return new UserAgent(null, null, null, null, null);
+  protected Device getBlankInstance() {
+    return new Device(null);
   }
 }

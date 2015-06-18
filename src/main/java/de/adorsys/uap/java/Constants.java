@@ -1,4 +1,4 @@
-package de.adorsys.ua_parser;
+package de.adorsys.uap.java;
 
 /**
  * @author sojern

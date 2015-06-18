@@ -1,4 +1,4 @@
-package de.adorsys.ua_parser;
+package de.adorsys.uap.java;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -6,11 +6,11 @@ import java.util.Map;
 
 import org.apache.commons.collections.map.LRUMap;
 
-import de.adorsys.ua_parser.Client;
-import de.adorsys.ua_parser.Device;
-import de.adorsys.ua_parser.OS;
-import de.adorsys.ua_parser.Parser;
-import de.adorsys.ua_parser.UserAgent;
+import de.adorsys.uap.java.Client;
+import de.adorsys.uap.java.Device;
+import de.adorsys.uap.java.OS;
+import de.adorsys.uap.java.Parser;
+import de.adorsys.uap.java.UserAgent;
 
 /**
  * When doing webanalytics (with for example PIG) the main pattern is to process

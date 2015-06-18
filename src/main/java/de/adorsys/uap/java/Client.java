@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package de.adorsys.ua_parser;
+package de.adorsys.uap.java;
 
 /**
  * Collection of parsed data for a given user agent string consisting of UserAgent, OS, Device
