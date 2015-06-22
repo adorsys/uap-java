@@ -24,7 +24,7 @@ import java.util.Map;
  * @author Steve Jiang (@sjiang) <gh at iamsteve com>
  */
 public class UserAgent {
-  public final String family, major, minor, patch, engine;
+  public final String family, major, minor, patch, version, engine;
 
   public UserAgent(String family, String major, String minor, String patch, String engine) {
     this.family = family;
@@ -32,10 +32,29 @@ public class UserAgent {
     this.minor = minor;
     this.patch = patch;
     this.engine = engine;
+    this.version = fullVersion(major, minor, patch);
   }
 
   public static UserAgent fromMap(Map<String, String> m) {
     return new UserAgent(m.get("family"), m.get("major"), m.get("minor"), m.get("patch"), m.get("engine"));
+  }
+
+  /**
+   * Combines the three version digits.
+   * A bit hacky in this place but should work always no mather how the parsing-regex looks like
+   */
+  private String fullVersion(String majorVersion, String minorVersion, String patchVersion) {
+	if (majorVersion == null) {
+	  return "";
+	}
+    StringBuilder sb = new StringBuilder(majorVersion);
+    if (minorVersion != null) {
+      sb.append('.').append(minorVersion);
+    }
+	if (patchVersion != null) {
+      sb.append('.').append(patchVersion);
+	}
+	return sb.toString();
   }
 
   @Override
